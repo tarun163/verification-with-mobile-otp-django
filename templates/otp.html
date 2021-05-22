@@ -9,21 +9,36 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>enter-otp</title>
+    <style>
+        .container {
+            margin-top: 12rem;
+            width: 30%;
+            font-family: 'Brush Script MT', cursive;
+        }
+        
+        .container h2 {
+            margin: 0rem;
+        }
+    </style>
 </head>
 
 <body>
- 
-    <div class="container text-center">
-       <h1>enter otp here {{mobile}}</h1>
-        <form action="" method="POST">
-        {% csrf_token %}
-          
-            <div><label for="otp">otp</label>
-                <input type="text" name="otp" id="otp">
-            </div>
-            <button type="submit" class=" btn btn-primary ">submit</button>
-        </form>
+
+    <div class="container shadow">
+        <h2 class="bg-info text-center p-0">Enter otp here</h2>
+        <div class="card p-2 m-0">
+
+            <form action="" method="POST">
+                {% csrf_token %}
+
+                <div class="m-3">
+                    <label for="otp">otp</label>
+                    <input type="text" name="otp" id="otp">
+                </div>
+                <button type="submit" class=" btn btn-primary ">submit</button>
+            </form>
+        </div>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

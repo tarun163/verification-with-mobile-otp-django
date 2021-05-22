@@ -11,15 +11,32 @@
 
     <title>welcome-page</title>
 </head>
+<style>
+    .container {
+        margin-top: 12rem;
+        width: 30%;
+        font-family: 'Brush Script MT', cursive;
+    }
+    
+    .card {
+        margin-bottom: 0rem;
+    }
+</style>
 
 <body>
     {% if success %}
     <div class="{{class}}">
         {{messege}} {% endif %}
-        <h1>Welcome User</h1>
-        <a href="{% url 'login_attempt' %}">login</a>
-        <br>
-        <a href="{% url 'register' %}">create account</a>
+
+        <div class="container text-center shadow ">
+            <div class="card p-5">
+                <h1>Welcome {{username}}</h1>
+                <div class="m-3">
+                    <a href="{% url 'login_attempt' %}" class="btn btn-primary">login</a>
+                    <a href="{% url 'register' %} " class=" btn btn-primary ">create new account</a>
+                </div>
+            </div>
+        </div>
         <!-- Optional JavaScript; choose one of the two! -->
 
         <!-- Option 1: Bootstrap Bundle with Popper -->
