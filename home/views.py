@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 import http.client
 import random
 from django.conf import settings
+
 # Create your views here.
 def home(request):
     return render(request,'index.html')
@@ -49,12 +50,12 @@ def login_otp(request):
 def register(request):
    
     if request.method == 'POST':
-        name = request.POST.get('username')
+        username = request.POST.get('username')
         email = request.POST.get('email')
         mobile = request.POST.get('mobile')
         q = Profile.objects.filter(mobile = mobile).first()
         if not q:
-            user = User(username = name,email=email)
+            user = User(username = username,email=email)
             user.save()
             otp = str(random.randint(1000,9999))
             profile = Profile(user = user,mobile=mobile,otp=otp)
@@ -79,14 +80,16 @@ def otp(request):
     context = {'mobile':mobile}
     if request.method == 'POST':
         otp = request.POST.get('otp')
-        verify = Profile.objects.filter(otp = otp ).first()
+        verify = Profile.objects.filter(otp = otp, mobile=mobile ).first()
+        print(verify.user)
         
         print(Profile.mobile)
         if verify:
             context = {
                 'success':True,
                 'messege':'Welcome',
-                'class':'alert-success'
+                'class':'alert-success',
+                'user':verify.user
             }
             return render(request,'index.html',context)         
 

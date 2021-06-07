@@ -8,3 +8,4 @@ class Profile(models.Model):
     otp = models.CharField( max_length=50)
 
    
+   

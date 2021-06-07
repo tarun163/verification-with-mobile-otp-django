@@ -24,13 +24,13 @@
 </style>
 
 <body>
-    {% if success %}
-    <div class="{{class}}">
-        {{messege}} {% endif %}
+    <div class="top"> {% if success %}
+        <div class="{{class}}">
+            <h3>{{messege}} {{user}}</h3>{% endif %}</div>
 
         <div class="container text-center shadow ">
             <div class="card p-5">
-                <h1>Welcome {{username}}</h1>
+                <h1>Welcome </h1>
                 <div class="m-3">
                     <a href="{% url 'login_attempt' %}" class="btn btn-primary">login</a>
                     <a href="{% url 'register' %} " class=" btn btn-primary ">create new account</a>

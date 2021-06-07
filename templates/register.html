@@ -24,11 +24,9 @@
 </head>
 
 <body>
- {% if success %}
- <div class="{{class}}">
- {{messege}}
- </div>
- {% endif %}
+ <div class="top"> {% if success %}
+        <div class="{{class}}">
+            {{messege}} {% endif %}</div>
    <div class="container shadow">
         <h2 class="bg-info text-center p-0"> Reset password</h2>
         <div class="card p-2 m-0">
@@ -36,7 +34,7 @@
             <form action="" method="POST">
                 {% csrf_token %}
                 <div class="m-3">
-                    <label for="username">Msername</label>
+                    <label for="username">username</label>
                     <input type="text" name="username" id="username">
                 </div>
                 <div class="m-3">
